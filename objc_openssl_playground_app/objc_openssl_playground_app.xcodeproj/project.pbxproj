@@ -8,15 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0F3F0D022514A2B700276B6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F0D012514A2B700276B6E /* AppDelegate.m */; };
-		0F3F0D052514A2B700276B6E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F0D042514A2B700276B6E /* SceneDelegate.m */; };
 		0F3F0D082514A2B700276B6E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F0D072514A2B700276B6E /* ViewController.m */; };
 		0F3F0D0B2514A2B700276B6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3F0D092514A2B700276B6E /* Main.storyboard */; };
 		0F3F0D0D2514A2B900276B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3F0D0C2514A2B900276B6E /* Assets.xcassets */; };
 		0F3F0D102514A2B900276B6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3F0D0E2514A2B900276B6E /* LaunchScreen.storyboard */; };
 		0F3F0D132514A2B900276B6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F0D122514A2B900276B6E /* main.m */; };
 		0F3F0D1D2514A2B900276B6E /* objc_openssl_playground_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F0D1C2514A2B900276B6E /* objc_openssl_playground_appTests.m */; };
-		1DE76FD032505551BADE2A57 /* Pods_objc_openssl_playground_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535F5A40FBB911DF2D47513D /* Pods_objc_openssl_playground_appTests.framework */; };
-		6E4C483C1D3FFA51045BAEC8 /* Pods_objc_openssl_playground_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F523AD97A77F9E1C74D5D830 /* Pods_objc_openssl_playground_app.framework */; };
+		0F3F0D282514DA4900276B6E /* rustyMagnetRootCA2025.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0F3F0D272514DA4900276B6E /* rustyMagnetRootCA2025.pem */; };
+		0F3F0D292514DA4900276B6E /* rustyMagnetRootCA2025.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0F3F0D272514DA4900276B6E /* rustyMagnetRootCA2025.pem */; };
+		0F3F0D2F2515190100276B6E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3F0D2D2515190100276B6E /* libssl.a */; };
+		0F3F0D302515190100276B6E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3F0D2D2515190100276B6E /* libssl.a */; };
+		0F3F0D312515190100276B6E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3F0D2E2515190100276B6E /* libcrypto.a */; };
+		0F3F0D322515190100276B6E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3F0D2E2515190100276B6E /* libcrypto.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,8 +36,6 @@
 		0F3F0CFD2514A2B600276B6E /* objc_openssl_playground_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = objc_openssl_playground_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F3F0D002514A2B600276B6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F3F0D012514A2B700276B6E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0F3F0D032514A2B700276B6E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		0F3F0D042514A2B700276B6E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		0F3F0D062514A2B700276B6E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0F3F0D072514A2B700276B6E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0F3F0D0A2514A2B700276B6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,12 +46,85 @@
 		0F3F0D182514A2B900276B6E /* objc_openssl_playground_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = objc_openssl_playground_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F3F0D1C2514A2B900276B6E /* objc_openssl_playground_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objc_openssl_playground_appTests.m; sourceTree = "<group>"; };
 		0F3F0D1E2514A2B900276B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45F0CE7BEFA204E983A08CE2 /* Pods-objc_openssl_playground_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_openssl_playground_appTests.debug.xcconfig"; path = "Target Support Files/Pods-objc_openssl_playground_appTests/Pods-objc_openssl_playground_appTests.debug.xcconfig"; sourceTree = "<group>"; };
-		535F5A40FBB911DF2D47513D /* Pods_objc_openssl_playground_appTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_objc_openssl_playground_appTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57642CF248CDE9CAC1967DCC /* Pods-objc_openssl_playground_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_openssl_playground_app.release.xcconfig"; path = "Target Support Files/Pods-objc_openssl_playground_app/Pods-objc_openssl_playground_app.release.xcconfig"; sourceTree = "<group>"; };
-		88F0287164CB8A4D83BCA651 /* Pods-objc_openssl_playground_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_openssl_playground_app.debug.xcconfig"; path = "Target Support Files/Pods-objc_openssl_playground_app/Pods-objc_openssl_playground_app.debug.xcconfig"; sourceTree = "<group>"; };
-		C717122049BBC9676690619E /* Pods-objc_openssl_playground_appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc_openssl_playground_appTests.release.xcconfig"; path = "Target Support Files/Pods-objc_openssl_playground_appTests/Pods-objc_openssl_playground_appTests.release.xcconfig"; sourceTree = "<group>"; };
-		F523AD97A77F9E1C74D5D830 /* Pods_objc_openssl_playground_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_objc_openssl_playground_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F3F0D272514DA4900276B6E /* rustyMagnetRootCA2025.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rustyMagnetRootCA2025.pem; sourceTree = "<group>"; };
+		0F3F0D2D2515190100276B6E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		0F3F0D2E2515190100276B6E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		0F3F0D352515191400276B6E /* pem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
+		0F3F0D362515191400276B6E /* nid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nid.h; sourceTree = "<group>"; };
+		0F3F0D372515191400276B6E /* ssl3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl3.h; sourceTree = "<group>"; };
+		0F3F0D382515191400276B6E /* ossl_typ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ossl_typ.h; sourceTree = "<group>"; };
+		0F3F0D392515191400276B6E /* dtls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtls1.h; sourceTree = "<group>"; };
+		0F3F0D3A2515191400276B6E /* err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = err.h; sourceTree = "<group>"; };
+		0F3F0D3B2515191400276B6E /* bn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bn.h; sourceTree = "<group>"; };
+		0F3F0D3C2515191400276B6E /* blowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blowfish.h; sourceTree = "<group>"; };
+		0F3F0D3D2515191400276B6E /* engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
+		0F3F0D3E2515191400276B6E /* bytestring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bytestring.h; sourceTree = "<group>"; };
+		0F3F0D3F2515191400276B6E /* x509.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
+		0F3F0D402515191400276B6E /* asn1_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
+		0F3F0D412515191400276B6E /* pool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pool.h; sourceTree = "<group>"; };
+		0F3F0D422515191400276B6E /* ec_key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ec_key.h; sourceTree = "<group>"; };
+		0F3F0D432515191400276B6E /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		0F3F0D442515191400276B6E /* is_boringssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = is_boringssl.h; sourceTree = "<group>"; };
+		0F3F0D452515191400276B6E /* sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
+		0F3F0D462515191400276B6E /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
+		0F3F0D472515191400276B6E /* chacha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chacha.h; sourceTree = "<group>"; };
+		0F3F0D482515191400276B6E /* opensslconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
+		0F3F0D492515191400276B6E /* arm_arch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arm_arch.h; sourceTree = "<group>"; };
+		0F3F0D4A2515191400276B6E /* bio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bio.h; sourceTree = "<group>"; };
+		0F3F0D4B2515191400276B6E /* dh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
+		0F3F0D4C2515191400276B6E /* digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = digest.h; sourceTree = "<group>"; };
+		0F3F0D4D2515191400276B6E /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
+		0F3F0D4E2515191400276B6E /* conf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf.h; sourceTree = "<group>"; };
+		0F3F0D4F2515191400276B6E /* poly1305.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poly1305.h; sourceTree = "<group>"; };
+		0F3F0D502515191400276B6E /* hkdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hkdf.h; sourceTree = "<group>"; };
+		0F3F0D512515191400276B6E /* type_check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = type_check.h; sourceTree = "<group>"; };
+		0F3F0D522515191400276B6E /* siphash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = siphash.h; sourceTree = "<group>"; };
+		0F3F0D532515191400276B6E /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		0F3F0D542515191400276B6E /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
+		0F3F0D552515191400276B6E /* pkcs8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs8.h; sourceTree = "<group>"; };
+		0F3F0D562515191400276B6E /* safestack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = safestack.h; sourceTree = "<group>"; };
+		0F3F0D572515191400276B6E /* buf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buf.h; sourceTree = "<group>"; };
+		0F3F0D582515191400276B6E /* obj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj.h; sourceTree = "<group>"; };
+		0F3F0D592515191400276B6E /* ecdsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		0F3F0D5A2515191400276B6E /* cipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cipher.h; sourceTree = "<group>"; };
+		0F3F0D5B2515191400276B6E /* objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objects.h; sourceTree = "<group>"; };
+		0F3F0D5C2515191400276B6E /* pkcs12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs12.h; sourceTree = "<group>"; };
+		0F3F0D5D2515191400276B6E /* crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
+		0F3F0D5E2515191400276B6E /* opensslv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslv.h; sourceTree = "<group>"; };
+		0F3F0D5F2515191400276B6E /* pkcs7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs7.h; sourceTree = "<group>"; };
+		0F3F0D602515191400276B6E /* obj_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj_mac.h; sourceTree = "<group>"; };
+		0F3F0D612515191400276B6E /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		0F3F0D622515191400276B6E /* ssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl.h; sourceTree = "<group>"; };
+		0F3F0D632515191400276B6E /* thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
+		0F3F0D642515191400276B6E /* evp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evp.h; sourceTree = "<group>"; };
+		0F3F0D652515191400276B6E /* e_os2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = e_os2.h; sourceTree = "<group>"; };
+		0F3F0D662515191400276B6E /* md4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
+		0F3F0D672515191400276B6E /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		0F3F0D682515191400276B6E /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		0F3F0D692515191400276B6E /* cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cast.h; sourceTree = "<group>"; };
+		0F3F0D6A2515191400276B6E /* rc4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc4.h; sourceTree = "<group>"; };
+		0F3F0D6B2515191400276B6E /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu.h; sourceTree = "<group>"; };
+		0F3F0D6C2515191400276B6E /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		0F3F0D6D2515191400276B6E /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
+		0F3F0D6E2515191400276B6E /* ec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ec.h; sourceTree = "<group>"; };
+		0F3F0D6F2515191400276B6E /* hrss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hrss.h; sourceTree = "<group>"; };
+		0F3F0D702515191400276B6E /* ecdh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdh.h; sourceTree = "<group>"; };
+		0F3F0D712515191400276B6E /* rand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
+		0F3F0D722515191400276B6E /* aead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aead.h; sourceTree = "<group>"; };
+		0F3F0D732515191400276B6E /* span.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = span.h; sourceTree = "<group>"; };
+		0F3F0D742515191400276B6E /* rsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
+		0F3F0D752515191400276B6E /* mem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mem.h; sourceTree = "<group>"; };
+		0F3F0D762515191400276B6E /* ripemd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripemd.h; sourceTree = "<group>"; };
+		0F3F0D772515191400276B6E /* curve25519.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curve25519.h; sourceTree = "<group>"; };
+		0F3F0D782515191400276B6E /* tls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tls1.h; sourceTree = "<group>"; };
+		0F3F0D792515191400276B6E /* dsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
+		0F3F0D7A2515191400276B6E /* srtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srtp.h; sourceTree = "<group>"; };
+		0F3F0D7B2515191400276B6E /* trust_token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trust_token.h; sourceTree = "<group>"; };
+		0F3F0D7C2515191400276B6E /* asn1t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1t.h; sourceTree = "<group>"; };
+		0F3F0D7D2515191400276B6E /* cmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
+		0F3F0D7E2515191400276B6E /* lhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
+		0F3F0D7F2515191400276B6E /* ex_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ex_data.h; sourceTree = "<group>"; };
+		0F3F0D802515191400276B6E /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E4C483C1D3FFA51045BAEC8 /* Pods_objc_openssl_playground_app.framework in Frameworks */,
+				0F3F0D312515190100276B6E /* libcrypto.a in Frameworks */,
+				0F3F0D2F2515190100276B6E /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +141,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DE76FD032505551BADE2A57 /* Pods_objc_openssl_playground_appTests.framework in Frameworks */,
+				0F3F0D322515190100276B6E /* libcrypto.a in Frameworks */,
+				0F3F0D302515190100276B6E /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,11 +152,13 @@
 		0F3F0CF42514A2B600276B6E = {
 			isa = PBXGroup;
 			children = (
+				0F3F0D332515191400276B6E /* include */,
+				0F3F0D2E2515190100276B6E /* libcrypto.a */,
+				0F3F0D2D2515190100276B6E /* libssl.a */,
+				0F3F0D272514DA4900276B6E /* rustyMagnetRootCA2025.pem */,
 				0F3F0CFF2514A2B600276B6E /* objc_openssl_playground_app */,
 				0F3F0D1B2514A2B900276B6E /* objc_openssl_playground_appTests */,
 				0F3F0CFE2514A2B600276B6E /* Products */,
-				32B3E5E3ECCDF1FFF1A86CC8 /* Pods */,
-				9496D40DFFDB7FCFE5E7A281 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,8 +176,6 @@
 			children = (
 				0F3F0D002514A2B600276B6E /* AppDelegate.h */,
 				0F3F0D012514A2B700276B6E /* AppDelegate.m */,
-				0F3F0D032514A2B700276B6E /* SceneDelegate.h */,
-				0F3F0D042514A2B700276B6E /* SceneDelegate.m */,
 				0F3F0D062514A2B700276B6E /* ViewController.h */,
 				0F3F0D072514A2B700276B6E /* ViewController.m */,
 				0F3F0D092514A2B700276B6E /* Main.storyboard */,
@@ -120,25 +196,95 @@
 			path = objc_openssl_playground_appTests;
 			sourceTree = "<group>";
 		};
-		32B3E5E3ECCDF1FFF1A86CC8 /* Pods */ = {
+		0F3F0D332515191400276B6E /* include */ = {
 			isa = PBXGroup;
 			children = (
-				88F0287164CB8A4D83BCA651 /* Pods-objc_openssl_playground_app.debug.xcconfig */,
-				57642CF248CDE9CAC1967DCC /* Pods-objc_openssl_playground_app.release.xcconfig */,
-				45F0CE7BEFA204E983A08CE2 /* Pods-objc_openssl_playground_appTests.debug.xcconfig */,
-				C717122049BBC9676690619E /* Pods-objc_openssl_playground_appTests.release.xcconfig */,
+				0F3F0D342515191400276B6E /* openssl */,
 			);
-			name = Pods;
-			path = Pods;
+			path = include;
 			sourceTree = "<group>";
 		};
-		9496D40DFFDB7FCFE5E7A281 /* Frameworks */ = {
+		0F3F0D342515191400276B6E /* openssl */ = {
 			isa = PBXGroup;
 			children = (
-				F523AD97A77F9E1C74D5D830 /* Pods_objc_openssl_playground_app.framework */,
-				535F5A40FBB911DF2D47513D /* Pods_objc_openssl_playground_appTests.framework */,
+				0F3F0D352515191400276B6E /* pem.h */,
+				0F3F0D362515191400276B6E /* nid.h */,
+				0F3F0D372515191400276B6E /* ssl3.h */,
+				0F3F0D382515191400276B6E /* ossl_typ.h */,
+				0F3F0D392515191400276B6E /* dtls1.h */,
+				0F3F0D3A2515191400276B6E /* err.h */,
+				0F3F0D3B2515191400276B6E /* bn.h */,
+				0F3F0D3C2515191400276B6E /* blowfish.h */,
+				0F3F0D3D2515191400276B6E /* engine.h */,
+				0F3F0D3E2515191400276B6E /* bytestring.h */,
+				0F3F0D3F2515191400276B6E /* x509.h */,
+				0F3F0D402515191400276B6E /* asn1_mac.h */,
+				0F3F0D412515191400276B6E /* pool.h */,
+				0F3F0D422515191400276B6E /* ec_key.h */,
+				0F3F0D432515191400276B6E /* base64.h */,
+				0F3F0D442515191400276B6E /* is_boringssl.h */,
+				0F3F0D452515191400276B6E /* sha.h */,
+				0F3F0D462515191400276B6E /* asn1.h */,
+				0F3F0D472515191400276B6E /* chacha.h */,
+				0F3F0D482515191400276B6E /* opensslconf.h */,
+				0F3F0D492515191400276B6E /* arm_arch.h */,
+				0F3F0D4A2515191400276B6E /* bio.h */,
+				0F3F0D4B2515191400276B6E /* dh.h */,
+				0F3F0D4C2515191400276B6E /* digest.h */,
+				0F3F0D4D2515191400276B6E /* x509v3.h */,
+				0F3F0D4E2515191400276B6E /* conf.h */,
+				0F3F0D4F2515191400276B6E /* poly1305.h */,
+				0F3F0D502515191400276B6E /* hkdf.h */,
+				0F3F0D512515191400276B6E /* type_check.h */,
+				0F3F0D522515191400276B6E /* siphash.h */,
+				0F3F0D532515191400276B6E /* md5.h */,
+				0F3F0D542515191400276B6E /* x509_vfy.h */,
+				0F3F0D552515191400276B6E /* pkcs8.h */,
+				0F3F0D562515191400276B6E /* safestack.h */,
+				0F3F0D572515191400276B6E /* buf.h */,
+				0F3F0D582515191400276B6E /* obj.h */,
+				0F3F0D592515191400276B6E /* ecdsa.h */,
+				0F3F0D5A2515191400276B6E /* cipher.h */,
+				0F3F0D5B2515191400276B6E /* objects.h */,
+				0F3F0D5C2515191400276B6E /* pkcs12.h */,
+				0F3F0D5D2515191400276B6E /* crypto.h */,
+				0F3F0D5E2515191400276B6E /* opensslv.h */,
+				0F3F0D5F2515191400276B6E /* pkcs7.h */,
+				0F3F0D602515191400276B6E /* obj_mac.h */,
+				0F3F0D612515191400276B6E /* buffer.h */,
+				0F3F0D622515191400276B6E /* ssl.h */,
+				0F3F0D632515191400276B6E /* thread.h */,
+				0F3F0D642515191400276B6E /* evp.h */,
+				0F3F0D652515191400276B6E /* e_os2.h */,
+				0F3F0D662515191400276B6E /* md4.h */,
+				0F3F0D672515191400276B6E /* hmac.h */,
+				0F3F0D682515191400276B6E /* aes.h */,
+				0F3F0D692515191400276B6E /* cast.h */,
+				0F3F0D6A2515191400276B6E /* rc4.h */,
+				0F3F0D6B2515191400276B6E /* cpu.h */,
+				0F3F0D6C2515191400276B6E /* stack.h */,
+				0F3F0D6D2515191400276B6E /* des.h */,
+				0F3F0D6E2515191400276B6E /* ec.h */,
+				0F3F0D6F2515191400276B6E /* hrss.h */,
+				0F3F0D702515191400276B6E /* ecdh.h */,
+				0F3F0D712515191400276B6E /* rand.h */,
+				0F3F0D722515191400276B6E /* aead.h */,
+				0F3F0D732515191400276B6E /* span.h */,
+				0F3F0D742515191400276B6E /* rsa.h */,
+				0F3F0D752515191400276B6E /* mem.h */,
+				0F3F0D762515191400276B6E /* ripemd.h */,
+				0F3F0D772515191400276B6E /* curve25519.h */,
+				0F3F0D782515191400276B6E /* tls1.h */,
+				0F3F0D792515191400276B6E /* dsa.h */,
+				0F3F0D7A2515191400276B6E /* srtp.h */,
+				0F3F0D7B2515191400276B6E /* trust_token.h */,
+				0F3F0D7C2515191400276B6E /* asn1t.h */,
+				0F3F0D7D2515191400276B6E /* cmac.h */,
+				0F3F0D7E2515191400276B6E /* lhash.h */,
+				0F3F0D7F2515191400276B6E /* ex_data.h */,
+				0F3F0D802515191400276B6E /* base.h */,
 			);
-			name = Frameworks;
+			path = openssl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +294,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F3F0D212514A2B900276B6E /* Build configuration list for PBXNativeTarget "objc_openssl_playground_app" */;
 			buildPhases = (
-				496D6587325B38E77D9EEF27 /* [CP] Check Pods Manifest.lock */,
 				0F3F0CF92514A2B600276B6E /* Sources */,
 				0F3F0CFA2514A2B600276B6E /* Frameworks */,
 				0F3F0CFB2514A2B600276B6E /* Resources */,
@@ -166,7 +311,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F3F0D242514A2B900276B6E /* Build configuration list for PBXNativeTarget "objc_openssl_playground_appTests" */;
 			buildPhases = (
-				4A98E15F47C88ECA3E413823 /* [CP] Check Pods Manifest.lock */,
 				0F3F0D142514A2B900276B6E /* Sources */,
 				0F3F0D152514A2B900276B6E /* Frameworks */,
 				0F3F0D162514A2B900276B6E /* Resources */,
@@ -224,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F3F0D102514A2B900276B6E /* LaunchScreen.storyboard in Resources */,
+				0F3F0D282514DA4900276B6E /* rustyMagnetRootCA2025.pem in Resources */,
 				0F3F0D0D2514A2B900276B6E /* Assets.xcassets in Resources */,
 				0F3F0D0B2514A2B700276B6E /* Main.storyboard in Resources */,
 			);
@@ -233,57 +378,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F3F0D292514DA4900276B6E /* rustyMagnetRootCA2025.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		496D6587325B38E77D9EEF27 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-objc_openssl_playground_app-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4A98E15F47C88ECA3E413823 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-objc_openssl_playground_appTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0F3F0CF92514A2B600276B6E /* Sources */ = {
@@ -293,7 +392,6 @@
 				0F3F0D082514A2B700276B6E /* ViewController.m in Sources */,
 				0F3F0D022514A2B700276B6E /* AppDelegate.m in Sources */,
 				0F3F0D132514A2B900276B6E /* main.m in Sources */,
-				0F3F0D052514A2B700276B6E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -437,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -447,15 +545,19 @@
 		};
 		0F3F0D222514A2B900276B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88F0287164CB8A4D83BCA651 /* Pods-objc_openssl_playground_app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2N3CU4HVH8;
 				INFOPLIST_FILE = objc_openssl_playground_app/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "youdog.com.rusty.objc-openssl-playground-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -465,15 +567,19 @@
 		};
 		0F3F0D232514A2B900276B6E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57642CF248CDE9CAC1967DCC /* Pods-objc_openssl_playground_app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2N3CU4HVH8;
 				INFOPLIST_FILE = objc_openssl_playground_app/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "youdog.com.rusty.objc-openssl-playground-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -483,16 +589,19 @@
 		};
 		0F3F0D252514A2B900276B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45F0CE7BEFA204E983A08CE2 /* Pods-objc_openssl_playground_appTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2N3CU4HVH8;
 				INFOPLIST_FILE = objc_openssl_playground_appTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "youdog.com.rusty.objc-openssl-playground-appTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -503,16 +612,19 @@
 		};
 		0F3F0D262514A2B900276B6E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C717122049BBC9676690619E /* Pods-objc_openssl_playground_appTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2N3CU4HVH8;
 				INFOPLIST_FILE = objc_openssl_playground_appTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "youdog.com.rusty.objc-openssl-playground-appTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

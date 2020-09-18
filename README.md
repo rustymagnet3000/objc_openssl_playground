@@ -1,19 +1,33 @@
 # OpenSSL Playground with Objective-C
-Interfacing from Swift to OpenSSL was possible.  But it was also messy, compared to Objective-C.
+Interfacing from Swift to OpenSSL was possible.  It was also messy, compared to Objective-C.
 
-## OpenSSL-Universal
-This project leveraged the `OpenSSL-Universal` from `CocoaPods`.
+### Setup
+To build the two `OpenSSL` libraries - `libcrypto.a` and `libssl.a` you want to build `fat binaries` for `arm64`, `armv7` and `x86_64`.
 
-`OpenSSL-Universal` sped up development as it allowed focus on `OpenSSL` and not writing build scripts to get   `OpenSSL` libraries building for `macOS`, `iOS Simulators` and `ios ARM phones`.
-
-### Dependency setup
-On MacOS 10.15 Catalina:
 ```
-brew install cocoapods --build-from-source
-brew link --overwrite cocoapods
-pod init  ( inside folder with xCode project)
-open Podfile
-pod 'OpenSSL-Universal'
-pod install
+git clone https://github.com/google/boringssl.git boringssl
+cd boringssl
+mkdir build && cd build
+./build.ios
 ```
-Alternatively, you could install `Cocoapods` with the `gem` package manager.
+The [build script][1e12ef73] is nice and simple.  Remember it requires two tools:
+```
+brew install cmake
+brew install ninja
+```
+Once you have the `fat binaries` drag them into your XCode projects.  The `Header` files can also be dragged across.
+
+  [1e12ef73]: https://lvvme.com/posts/2019/02/16-build_boringssl_for_ios/ "build_script_boringssl"
+
+### History
+Started with `OpenSSL-Universal` with `Cocoapods` with `gem` as the package manager.
+Interfacing from Swift to OpenSSL was possible.  It was also messy, compared to Objective-C.
+
+### References
+```
+https://github.com/openssl/openssl/blob/master/apps/verify.c
+
+https://zakird.com/2013/10/13/certificate-parsing-with-openssl
+
+http://fm4dd.com/openssl/certverify.htm
+```
