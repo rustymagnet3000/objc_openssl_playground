@@ -1,4 +1,13 @@
 #import <XCTest/XCTest.h>
+#include <openssl/opensslv.h>
+#include <openssl/crypto.h>
+#define BANNERWIDTH 30
+
+#ifdef DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(...) {}
+#endif
 
 @interface objc_openssl_playground_appTests : XCTestCase
 
@@ -6,23 +15,19 @@
 
 @implementation objc_openssl_playground_appTests
 
-- (void)setUp {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+- (void)setUp {}
+- (void)tearDown {}
+- (void)banner{
+    NSLog(@"%@", [@"" stringByPaddingToLength:BANNERWIDTH withString:@"-" startingAtIndex:0]);
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+
+- (void)testOpenSSLVersion {
+    [self banner];
+    puts(OPENSSL_VERSION_TEXT);
+    [self banner];
 }
 
-- (void)testExample {
-    NSLog(@"[*] unit tests added");
-}
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
 
 @end
