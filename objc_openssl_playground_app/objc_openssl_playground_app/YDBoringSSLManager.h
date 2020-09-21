@@ -9,14 +9,12 @@
 
 #import <Foundation/Foundation.h>
 #import "pem.h"
-#include <openssl/crypto.h>
-#include <openssl/pem.h>
-#include <openssl/x509.h>
-#include <openssl/x509_vfy.h>
+#import "x509.h"
+#import "base64.h"
 
 @interface YDBoringSSLManager: NSObject
 - (instancetype) init;
-- (NSString *) getDescription;
+- (NSString *) getVersion;
 - (void) readLocalCertFile;
 @end
     

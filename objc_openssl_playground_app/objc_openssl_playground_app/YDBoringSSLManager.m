@@ -1,17 +1,17 @@
-#import <YDBoringSSLManager.h>
+#import "YDBoringSSLManager.h"
 
 @implementation YDBoringSSLManager
 
 -(instancetype) init{
     if (self = [super init]) {
-        NSLog(@"wow");
+        NSLog(@"[*] Initializing: %@", NSStringFromClass([self class]));
     }
     return self;
 }
 
--(NSString *) getDescription{
+-(NSString *) getVersion{
 
-    return @"Hello";
+    return [NSString stringWithFormat:@"[*] Version: %s", OPENSSL_VERSION_TEXT];
 }
 
 -(void) readLocalCertFile{

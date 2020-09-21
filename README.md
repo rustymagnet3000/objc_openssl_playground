@@ -17,7 +17,9 @@ brew install cmake
 brew install ninja
 ```
 
-Once you have the `fat binaries` drag them into your XCode projects.  The `Header` files can also be dragged across.
+Once you have the `fat binaries` drag them into your XCode projects.  The `Header` files can also be dragged across.  In the `Target` `Build Settings` you will see the the `HEADER_SEARCH_PATHS` has been set to find the ` header files`.
+
+
 
   [1e12ef73]: https://lvvme.com/posts/2019/02/16-build_boringssl_for_ios/ "build_script_boringssl"
 
