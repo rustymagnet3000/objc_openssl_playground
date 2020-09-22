@@ -3,19 +3,16 @@
 #define BANNERWIDTH 30
 
 @interface objc_openssl_playground_appTests : XCTestCase
-
 @end
 
 @implementation objc_openssl_playground_appTests
 
-    YDBoringSSLManager *manager;
+   YDBoringSSLManager *manager;
 
 - (void)setUp {
     self.continueAfterFailure = NO;
     manager = [[YDBoringSSLManager alloc] init];
 }
-
-- (void)tearDown {}
 
 - (void)banner{
     NSLog(@"%@", [@"" stringByPaddingToLength:BANNERWIDTH withString:@"-" startingAtIndex:0]);
@@ -28,12 +25,25 @@
     [self banner];
 }
 
+- (void)testCertStoreCreated {
+    [self banner];
+    NSLog(@"🐝%@",[manager setStoreOfCerts] ? @"Yes" : @"No");
+    [self banner];
+}
+
 - (void)testReadCertificate {
     [self banner];
-    
     [manager readLocalCertFile];
     [self banner];
 }
 
+- (void)testVerifyCertificate {
+    [self banner];
+    [manager readLocalCertFile];
+    [manager verifyCert];
+    [self banner];
+}
+
+- (void)tearDown {}
 
 @end
