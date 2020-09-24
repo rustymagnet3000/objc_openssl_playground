@@ -1,45 +1,52 @@
 # OpenSSL Playground with Objective-C
-This repo uses the `BoringSSL` fork of `OpenSSL`.
+This repo uses `OpenSSL`.  Brief notes on version changes are written here:
+
+https://www.openssl.org/news/openssl-1.1.1-notes.html
+
 ### Setup
-Build the two `OpenSSL` libraries - `libcrypto.a` and `libssl.a` - as `fat binaries`.  `fat binaries` for this project equates to: `arm64`, `armv7` and `x86_64`.
+Build the two `OpenSSL` libraries `libcrypto.a` and `libssl.a`.
 
 ```
-git clone https://github.com/google/boringssl.git boringssl
-cd boringssl
-mkdir build && cd build
+git clone https://github.com/x2on/OpenSSL-for-iPhone.git
+cd OpenSSL-for-iPhone
+./build-libssl.sh -targets="ios-sim-cross-x86_64 ios64-cross-arm64 ios64-cross-arm64e"
 ```
-Get the [build script][1e12ef73]:
+If you want a `macOS Target`:
 ```
-./build.ios
-```
-The script requires two tools:
-```
-brew install cmake
-brew install ninja
+git clone https://github.com/jasonacox/Build-OpenSSL-cURL.git
+cd Build-OpenSSL-cURL/
+./build.sh -o 1.1.1g -d -b
 ```
 
-Once you have the `fat binaries` drag them into your XCode projects.  The `Header` files can also be dragged across.  In the `Target` `Build Settings` you will see the the `HEADER_SEARCH_PATHS` has been set to find the ` header files`.
+These scripts create `fat binaries`.  After building, drag `libcrypto.a` and `libssl.a` into the XCode project.
 
+The `Header` files must be dragged into the project.  When you have multiple architectures inside a single project, make sure the `HEADER_SEARCH_PATHS` and `LIBRARY_SEARCH_PATHS` can differentiate to avoid linking errors and missing header errors.  For example:
 
+```
+//:configuration = Debug
+HEADER_SEARCH_PATHS = ${SRCROOT}/iOS/**
+LIBRARY_SEARCH_PATHS = ${SRCROOT}/iOS/**
+```
 
-  [1e12ef73]: https://lvvme.com/posts/2019/02/16-build_boringssl_for_ios/ "build_script_boringssl"
 
 ### Certificate Authority location on iOS
 Located at: `/System/Library/Security/Certificates.bundle`.
 
 ### History
-The repo started with `OpenSSL-Universal` with `Cocoapods` with `gem` as the package manager.
-
-Why Objective-C?  Interfacing from Swift to OpenSSL was possible.  But was tidier to code in Objective-C.
+The repo started with `OpenSSL-Universal` with `Cocoapods` with `gem` as the package manager.  Then it used `BoringSSL` ( the Google `fork` of `OpenSSL`).
 
 ## References
-##### Build OpenSSL for iOS and macOS
+##### Build OpenSSL for iOS
 https://github.com/x2on/OpenSSL-for-iPhone
+##### Build OpenSSL and cURL for macOS
+https://github.com/jasonacox/Build-OpenSSL-cURL/
+##### Build BoringSSL for iOS
+https://lvvme.com/posts/2019/02/16-build_boringssl_for_ios/
 ##### Details how to Load Trust Store
 https://www.openssl.org/docs/man1.1.1/man3/X509_STORE_load_locations.html
 ##### The OpenSSL API to Verify a Cert against a Chain
 https://github.com/openssl/openssl/blob/master/apps/verify.c
-##### Apple standing in for OpenSSL
+##### Apple standing in for OpenSSL. Excellent sample code
 https://hynek.me/articles/apple-openssl-verification-surprises/
 ##### Good tips on what OpenSSL APIs to use for Certificates
 https://zakird.com/2013/10/13/certificate-parsing-with-openssl

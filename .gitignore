@@ -2,13 +2,15 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-## Ignoring all statically linked Certs and libraries
+## Ignoring all statically linked Certs, pycharm files, OpenSSL headers and OpenSSL  libraries
 **/*.pem
 .DS_Store
-**/*.a
+objc_openssl_playground_app/macOS/**/*.h
+objc_openssl_playground_app/iOS/**/*.h
 *.a
-objc_openssl_playground_app/*.a
-objc_openssl_playground_app/libcrypto.a
+**/.idea/*
+
+
 ## User settings
 xcuserdata/
 

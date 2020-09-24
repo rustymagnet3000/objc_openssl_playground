@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import "YDBoringSSLManager.h"
+#import "YDOpenSSLManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
