@@ -9,7 +9,7 @@ objc_openssl_playground_app/macOS/**/*.h
 objc_openssl_playground_app/iOS/**/*.h
 *.a
 **/.idea/*
-
+LICENSE
 
 ## User settings
 xcuserdata/

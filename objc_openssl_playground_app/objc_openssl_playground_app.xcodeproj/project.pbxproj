@@ -22,8 +22,6 @@
 		0F781410251A72CB00E01809 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F78140E251A72CA00E01809 /* libssl.a */; };
 		0F781485251B2F2F00E01809 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F781482251B2F2F00E01809 /* libcrypto.a */; };
 		0F781487251B2F2F00E01809 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F781483251B2F2F00E01809 /* libssl.a */; };
-		0F7814F9251BAA1800E01809 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0F78148A251BAA1700E01809 /* LICENSE */; };
-		0F7814FA251BAA1800E01809 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0F78148A251BAA1700E01809 /* LICENSE */; };
 		0F7814FC251BAE5E00E01809 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F781482251B2F2F00E01809 /* libcrypto.a */; };
 		0F7814FD251BAE6D00E01809 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F781483251B2F2F00E01809 /* libssl.a */; };
 		0FDD56FE251893AC00B29C95 /* YDOpenSSLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD56FD251893AC00B29C95 /* YDOpenSSLManager.m */; };
@@ -178,7 +176,6 @@
 		0F781482251B2F2F00E01809 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		0F781483251B2F2F00E01809 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		0F781489251BAA1700E01809 /* opensslconf-template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "opensslconf-template.h"; sourceTree = "<group>"; };
-		0F78148A251BAA1700E01809 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0F78148C251BAA1700E01809 /* pem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
 		0F78148D251BAA1700E01809 /* kdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kdf.h; sourceTree = "<group>"; };
 		0F78148E251BAA1700E01809 /* pem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
@@ -541,7 +538,6 @@
 			isa = PBXGroup;
 			children = (
 				0F781489251BAA1700E01809 /* opensslconf-template.h */,
-				0F78148A251BAA1700E01809 /* LICENSE */,
 				0F78148B251BAA1700E01809 /* openssl */,
 			);
 			path = include;
@@ -777,7 +773,6 @@
 				0F3F0D282514DA4900276B6E /* rustyMagnetRootCA2025.pem in Resources */,
 				0F3F0D0D2514A2B900276B6E /* Assets.xcassets in Resources */,
 				0F3F0D0B2514A2B700276B6E /* Main.storyboard in Resources */,
-				0F7814F9251BAA1800E01809 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,7 +780,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F7814FA251BAA1800E01809 /* LICENSE in Resources */,
 				0F3F0D292514DA4900276B6E /* rustyMagnetRootCA2025.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
