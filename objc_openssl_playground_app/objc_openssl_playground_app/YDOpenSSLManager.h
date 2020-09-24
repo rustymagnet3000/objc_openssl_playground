@@ -18,12 +18,14 @@
     X509 *cert;
     X509_STORE *certStore;
     X509_LOOKUP *lookup;
+    FILE* certfile;
 }
+
 - (instancetype) init;
 - (NSString *) getVersion;
-- (bool) setStoreOfCerts;
-- (void) readLocalCertFile;
-- (bool) verifyCert;
+- (BOOL) setStoreOfCerts;
+- (BOOL) readLocalCertFile;
+- (BOOL) verifyCert;
 @end
     
 #endif /* YDOpenSSSSLManager_h */

@@ -20,7 +20,7 @@
     return [NSString stringWithFormat:@"[*] Version: %s", OPENSSL_VERSION_TEXT];
 }
 
--(bool) setStoreOfCerts{
+-(BOOL) setStoreOfCerts{
 
     /* creates an empty X509_STORE structure */
     certStore=X509_STORE_new();
@@ -41,7 +41,7 @@
     return true;
 }
 
--(void) readLocalCertFile{
+-(BOOL) readLocalCertFile{
     
     NSBundle *appbundle = [NSBundle mainBundle];
     NSString *certpath = [appbundle pathForResource:@"rustyMagnetRootCA2025" ofType:@"pem"];
@@ -49,18 +49,22 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath:certpath])
     {
         NSLog(@"[*] Certificate found in App Bundle");
-        FILE* certfile = fopen(certpath.fileSystemRepresentation, "r");
+        certfile = fopen(certpath.fileSystemRepresentation, "r");
         
-        if(certfile == NULL)
-            NSLog(@"[*] Error reading certificate" );
-        
-        PEM_read_X509(certfile, &cert, 0, NULL);
+        if(certfile != NULL)
+            return TRUE;
     }
+    NSLog(@"[*] Error reading local cert");
+    return NO;
 }
 
-- (bool) verifyCert {
-    
+- (void) printLocalCertFile {
+    PEM_read_X509(certfile, &cert, 0, NULL);
     PEM_write_X509(stdout, cert);
+}
+
+- (BOOL) verifyCert {
+    
 
     //    X509_STORE_CTX  *vrfy_ctx = NULL;
 //    vrfy_ctx = X509_STORE_CTX_new();

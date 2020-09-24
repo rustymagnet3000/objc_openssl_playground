@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F22F54D251C5C320074E711 /* YDOpenSSLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD56FD251893AC00B29C95 /* YDOpenSSLManager.m */; };
+		0F22F551251C8BD00074E711 /* rustyMagnetRootCA2025.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F3F0D272514DA4900276B6E /* rustyMagnetRootCA2025.pem */; };
 		0F3F0D022514A2B700276B6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F0D012514A2B700276B6E /* AppDelegate.m */; };
 		0F3F0D082514A2B700276B6E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F0D072514A2B700276B6E /* ViewController.m */; };
 		0F3F0D0B2514A2B700276B6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F3F0D092514A2B700276B6E /* Main.storyboard */; };
@@ -39,14 +40,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0F781388251A529D00E01809 /* CopyFiles */ = {
+		0F22F550251C8BCA0074E711 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				0F22F551251C8BD00074E711 /* rustyMagnetRootCA2025.pem in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -712,7 +714,7 @@
 				0F22F54C251C58080074E711 /* Print OpenSSL include directory */,
 				0F781386251A529D00E01809 /* Sources */,
 				0F781387251A529D00E01809 /* Frameworks */,
-				0F781388251A529D00E01809 /* CopyFiles */,
+				0F22F550251C8BCA0074E711 /* CopyFiles */,
 			);
 			buildRules = (
 			);

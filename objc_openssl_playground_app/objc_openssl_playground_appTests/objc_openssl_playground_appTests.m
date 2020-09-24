@@ -1,5 +1,5 @@
 #import <XCTest/XCTest.h>
-#import "YDBoringSSLManager.h"
+#import "YDOpenSSLManager.h"
 #define BANNERWIDTH 30
 
 @interface objc_openssl_playground_appTests : XCTestCase
@@ -7,11 +7,11 @@
 
 @implementation objc_openssl_playground_appTests
 
-   YDBoringSSLManager *manager;
+YDOpenSSLManager *manager;
 
 - (void)setUp {
     self.continueAfterFailure = NO;
-    manager = [[YDBoringSSLManager alloc] init];
+    manager = [[YDOpenSSLManager alloc] init];
 }
 
 - (void)banner{
