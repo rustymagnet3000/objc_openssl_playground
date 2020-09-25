@@ -5,16 +5,12 @@
 -(instancetype) init{
     if (self = [super init]) {
         NSLog(@"[*] Initializing: %@", NSStringFromClass([self class]));
-        NSLog(@"%@", [self getVersion]);
         
         OPENSSL_init_crypto(OPENSSL_INIT_NO_ADD_ALL_CIPHERS
         | OPENSSL_INIT_NO_ADD_ALL_DIGESTS, NULL);
         certStore = NULL;
         cafilespath = [[NSProcessInfo processInfo] environment][@"CAFILES"];
         lookup=NULL;
-        cert = NULL;
-        certfile = NULL;
-        appbundle = [NSBundle mainBundle];
         ctx = NULL;
 
         if([self verifyTrustStoreDirExists] == NO)
@@ -67,6 +63,10 @@
     if(SSL_CTX_load_verify_locations(ctx, NULL, cafilespath.fileSystemRepresentation) == 0)
         return NO;
     NSLog(@"[*] loaded trust store from Folder");
+    
+    if(![self verifyPeerCertificates])
+        return NO;
+    
     return YES;
 }
 
@@ -75,16 +75,16 @@
     const long result = SSL_get_verify_result(ssl);
     switch (result) {
         case X509_V_OK:
-            fprintf(stdout, "Happy path\n");
+            fprintf(stdout, "[*] Happy path\n");
             return YES;
         case X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY:
-            fprintf(stderr, "Can't find certificate\n");
+            fprintf(stderr, "[*] Can't find certificate\n");
             return NO;
         case X509_V_ERR_SELF_SIGNED_CERT_IN_CHAIN:
-            fprintf(stdout, "Self signed certificate chain. Proceed\n");
+            fprintf(stdout, "[*] Self signed certificate chain. Proceed\n");
             return YES;
         default:
-            fprintf(stderr, "Unexpected error: %ld\n", result);
+            fprintf(stderr, "[*] Unexpected error: %ld\n", result);
             return NO;
     }
 }
@@ -113,27 +113,6 @@
 -(NSString *) getVersion{
     return [NSString stringWithFormat:@"[*] Version: %s", OPENSSL_VERSION_TEXT];
 }
-
--(BOOL) readLocalCertFile{
-    NSString *certpath = [appbundle pathForResource:@"rustyMagnetRootCA2025" ofType:@"pem"];
-
-    if ([[NSFileManager defaultManager] fileExistsAtPath:certpath])
-    {
-        NSLog(@"[*] Certificate found in App Bundle");
-        certfile = fopen(certpath.fileSystemRepresentation, "r");
-        
-        if(certfile != NULL)
-            return TRUE;
-    }
-    NSLog(@"[*] Error reading local cert");
-    return NO;
-}
-
-- (void) printLocalCertFile {
-    PEM_read_X509(certfile, &cert, 0, NULL);
-    PEM_write_X509(stdout, cert);
-}
-
 
 @end
 

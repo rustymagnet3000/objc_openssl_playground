@@ -19,21 +19,18 @@
 #define BUFFER 1024
 
 @interface YDOpenSSLManager: NSObject{
-    X509 *cert;
+    
     X509_STORE *certStore;
     X509_LOOKUP *lookup;
-    NSBundle *appbundle;
     SSL_CTX *ctx;
     SSL *ssl;
     BIO *bio, *output;
     NSString *cafilespath;
-    FILE* certfile;
+    
 }
 
 - (instancetype) init;
 - (NSString *) getVersion;
-- (BOOL) readLocalCertFile;
-- (BOOL) createConnection;
 - (void) printServerResponse;
 - (void) cleanUp;
 
