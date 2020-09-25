@@ -12,12 +12,16 @@
 #include "x509.h"
 #include "x509_vfy.h"
 #include "ssl.h"
-
+#include <openssl/err.h>
 
 @interface YDOpenSSLManager: NSObject{
     X509 *cert;
     X509_STORE *certStore;
     X509_LOOKUP *lookup;
+    NSBundle *appbundle;
+    SSL_CTX *ctx;
+    SSL *ssl;
+    BIO *bio;
     FILE* certfile;
 }
 
