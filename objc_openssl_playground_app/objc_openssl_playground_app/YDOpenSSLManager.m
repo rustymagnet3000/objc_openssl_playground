@@ -1,11 +1,5 @@
 #import "YDOpenSSLManager.h"
 
-int verify(int ok, X509_STORE_CTX *store)
-{
-    X509_STORE_CTX_set_error(store, X509_V_ERR_APPLICATION_VERIFICATION);
-    return 0;
-}
-
 @implementation YDOpenSSLManager
 
 -(instancetype) init{
@@ -16,57 +10,111 @@ int verify(int ok, X509_STORE_CTX *store)
         OPENSSL_init_crypto(OPENSSL_INIT_NO_ADD_ALL_CIPHERS
         | OPENSSL_INIT_NO_ADD_ALL_DIGESTS, NULL);
         certStore = NULL;
+        cafilespath = [[NSProcessInfo processInfo] environment][@"CAFILES"];
         lookup=NULL;
         cert = NULL;
         certfile = NULL;
         appbundle = [NSBundle mainBundle];
-        ctx = SSL_CTX_new(SSLv23_client_method());
+        ctx = NULL;
+
+        if([self verifyTrustStoreDirExists] == NO)
+            return NULL;
+
+        if([self connectionSetup] == NO)
+            return NULL;
         
         if([self loadTrustStore] == NO)
             return NULL;
-        
-        if ([self createConnection] == NO)
-            return NULL;
-        
-
+    
+ 
     }
     return self;
 }
 
--(BOOL) createConnection{
-    BIO_set_conn_hostname(bio, "127.0.0.1:8443");
+-(BOOL) verifyTrustStoreDirExists{
+    BOOL isDir = NO;
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    [fileManager fileExistsAtPath:cafilespath isDirectory:&isDir];
+    return isDir;
+}
 
-//    if(bio == NULL)
-//        return NO;
 
-    if(BIO_do_connect(bio) <= 0)
-        return NO;
-    
+-(BOOL) connectionSetup{
+
+    ctx = SSL_CTX_new(TLS_client_method());
     bio = BIO_new_ssl_connect(ctx);
+    
+    BIO_set_conn_hostname(bio, HOSTANDPORT);
+    
+    if(bio == NULL)
+        return NO;
+
+    if(BIO_do_connect(bio) <= 0){
+        fprintf(stderr, "Error connecting to server\n");
+        ERR_print_errors_fp(stderr);
+        return NO;
+    }
+    
     BIO_get_ssl(bio, & ssl);
     SSL_set_mode(ssl, SSL_MODE_AUTO_RETRY);
+        
     NSLog(@"[*] Connection created");
     return YES;
 }
 
-
-
--(NSString *) getVersion{
-    return [NSString stringWithFormat:@"[*] Version: %s", OPENSSL_VERSION_TEXT];
-}
-
 -(BOOL) loadTrustStore{
 
-    const char *cert_folder = [[appbundle resourcePath] UTF8String];
-    if(! SSL_CTX_load_verify_locations(ctx, NULL, cert_folder))
+    if(SSL_CTX_load_verify_locations(ctx, NULL, cafilespath.fileSystemRepresentation) == 0)
         return NO;
     NSLog(@"[*] loaded trust store from Folder");
     return YES;
 }
 
+-(BOOL) verifyPeerCertificates{
+    
+    const long result = SSL_get_verify_result(ssl);
+    switch (result) {
+        case X509_V_OK:
+            fprintf(stdout, "Happy path\n");
+            return YES;
+        case X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY:
+            fprintf(stderr, "Can't find certificate\n");
+            return NO;
+        case X509_V_ERR_SELF_SIGNED_CERT_IN_CHAIN:
+            fprintf(stdout, "Self signed certificate chain. Proceed\n");
+            return YES;
+        default:
+            fprintf(stderr, "Unexpected error: %ld\n", result);
+            return NO;
+    }
+}
+
+-(void) printServerResponse{
+    char tmpbuf[BUFFER];
+    int len;
+    output = BIO_new_fp(stdout, BIO_NOCLOSE);
+    BIO_puts(bio, "GET / HTTP/1.0\n\n");
+    
+    for ( ; ; ) {
+        len = BIO_read(bio, tmpbuf, BUFFER);
+        if (len <= 0)
+            break;
+        BIO_write(output, tmpbuf, len);
+    }
+}
+
+-(void) cleanUp{
+    BIO_free(bio);
+    BIO_free(output);
+    SSL_CTX_free(ctx);
+    ssl = NULL;
+}
+
+-(NSString *) getVersion{
+    return [NSString stringWithFormat:@"[*] Version: %s", OPENSSL_VERSION_TEXT];
+}
+
 -(BOOL) readLocalCertFile{
-    
-    
     NSString *certpath = [appbundle pathForResource:@"rustyMagnetRootCA2025" ofType:@"pem"];
 
     if ([[NSFileManager defaultManager] fileExistsAtPath:certpath])
@@ -86,14 +134,6 @@ int verify(int ok, X509_STORE_CTX *store)
     PEM_write_X509(stdout, cert);
 }
 
-- (BOOL) verifyCert {
-    
-
-    //    X509_STORE_CTX  *vrfy_ctx = NULL;
-//    vrfy_ctx = X509_STORE_CTX_new();
-// X509_STORE_CTX_init(vrfy_ctx, store, cert, NULL);
-    return false;
-}
 
 @end
 

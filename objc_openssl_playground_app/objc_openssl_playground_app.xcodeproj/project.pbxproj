@@ -18,6 +18,8 @@
 		0F3F0D1D2514A2B900276B6E /* objc_openssl_playground_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F0D1C2514A2B900276B6E /* objc_openssl_playground_appTests.m */; };
 		0F3F0D282514DA4900276B6E /* rustyMagnetRootCA2025.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0F3F0D272514DA4900276B6E /* rustyMagnetRootCA2025.pem */; };
 		0F3F0D292514DA4900276B6E /* rustyMagnetRootCA2025.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0F3F0D272514DA4900276B6E /* rustyMagnetRootCA2025.pem */; };
+		0F62C262251E30C900885F35 /* httpbin-org-CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F62C260251E30C200885F35 /* httpbin-org-CA.pem */; };
+		0F62C263251E30CB00885F35 /* httpbin-org-IntCA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F62C261251E30C300885F35 /* httpbin-org-IntCA.pem */; };
 		0F78138D251A529D00E01809 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F78138C251A529D00E01809 /* main.m */; };
 		0F78140F251A72CA00E01809 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F78140D251A72CA00E01809 /* libcrypto.a */; };
 		0F781410251A72CB00E01809 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F78140E251A72CA00E01809 /* libssl.a */; };
@@ -43,10 +45,12 @@
 		0F22F550251C8BCA0074E711 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "";
+			dstPath = cafiles;
 			dstSubfolderSpec = 16;
 			files = (
 				0F22F551251C8BD00074E711 /* rustyMagnetRootCA2025.pem in CopyFiles */,
+				0F62C262251E30C900885F35 /* httpbin-org-CA.pem in CopyFiles */,
+				0F62C263251E30CB00885F35 /* httpbin-org-IntCA.pem in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +71,8 @@
 		0F3F0D1C2514A2B900276B6E /* objc_openssl_playground_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objc_openssl_playground_appTests.m; sourceTree = "<group>"; };
 		0F3F0D1E2514A2B900276B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F3F0D272514DA4900276B6E /* rustyMagnetRootCA2025.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rustyMagnetRootCA2025.pem; sourceTree = "<group>"; };
+		0F62C260251E30C200885F35 /* httpbin-org-CA.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = "httpbin-org-CA.pem"; sourceTree = "<group>"; };
+		0F62C261251E30C300885F35 /* httpbin-org-IntCA.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = "httpbin-org-IntCA.pem"; sourceTree = "<group>"; };
 		0F78138A251A529D00E01809 /* openssl_playground_macos */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = openssl_playground_macos; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F78138C251A529D00E01809 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F7813A4251A72CA00E01809 /* pem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
@@ -326,6 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				0F3F0D272514DA4900276B6E /* rustyMagnetRootCA2025.pem */,
+				0F62C260251E30C200885F35 /* httpbin-org-CA.pem */,
+				0F62C261251E30C300885F35 /* httpbin-org-IntCA.pem */,
 				0F7813A1251A72CA00E01809 /* macOS */,
 				0F781411251B2D4600E01809 /* iOS */,
 				0F3F0CFF2514A2B600276B6E /* objc_openssl_playground_app */,

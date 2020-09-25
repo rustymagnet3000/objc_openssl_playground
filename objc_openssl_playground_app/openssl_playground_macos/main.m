@@ -7,10 +7,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         YDOpenSSLManager *manager = [[YDOpenSSLManager alloc] init];
-        [manager readLocalCertFile];
-
-
-        
+        [manager cleanUp];
     }
     return 0;
 }
