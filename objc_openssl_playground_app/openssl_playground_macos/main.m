@@ -5,10 +5,12 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         YDOpenSSLManager *manager = [[YDOpenSSLManager alloc] init];
-        NSLog(@"%@", [manager getVersion]);
-//        [manager printServerResponse];
-//        [manager cleanUp];
-        [YDOpenSSLHelper readLocalCertFile];
+        NSLog(@"%@", [YDOpenSSLHelper getVersion]);
+        
+        if(manager != NULL){
+            [manager printServerResponse];
+            [manager cleanUp];
+        }
         
     }
     return 0;

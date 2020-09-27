@@ -2,6 +2,10 @@
 
 @implementation YDOpenSSLHelper
 
++(NSString *) getVersion{
+    return [NSString stringWithFormat:@"[*] Version: %s", OPENSSL_VERSION_TEXT];
+}
+
 +(void) readLocalCertFile{
     NSString *certpath = [[NSBundle mainBundle] pathForResource:@"/cafiles/rustyMagnetRootCA2025" ofType:@"pem"];
     

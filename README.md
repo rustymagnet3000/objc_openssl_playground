@@ -28,19 +28,18 @@ LIBRARY_SEARCH_PATHS = ${SRCROOT}/iOS/**
 
 
 ### Trust Store
+`man SSL_CTX_load_verify_locations` gives this statement:
+
+>  When building its own certificate chain, an OpenSSL client/server
+       will try to fill in missing certificates from CAfile/CApath, if the certificate chain was not explicitly specified (see
+       SSL_CTX_add_extra_chain_cert(3), SSL_CTX_use_certificate(3).
 
 
-X509_STORE_load_locations() loads trusted certificate(s) into an X509_STORE from a given file and/or directory path. It is permitted to specify just a file, just a directory, or both paths. The certificates in the directory must be in hashed form, as documented in X509_LOOKUP_hash_dir(3).
-
-
-From the `Terminal` app on `macOS`:
-
-`c_rehash /path/to/certfolder`
-
-This injects a symbolic link into that folder for each certificate that is to be read with this OpenSSL command.
+There is a whole step about `X509_STORE_load_locations` using a tool called `c_rehash` to inject a symbolic link into the CA folder.  Each cert is given a link. But `SSL_CTX_load_verify_locations` took care of this for you.
 ```
-if(! SSL_CTX_load_verify_locations(ctx, NULL, "/path/to/certfolder"))
-```  
+      > X509_STORE_load_locations() loads trusted certificate(s) into an X509_STORE from a given file and/or directory path. It is permitted to specify just a file, just a directory, or both paths. The certificates in the directory must be in hashed form, as documented in X509_LOOKUP_hash_dir(3).
+
+
 
 ### TLS Version
 comment from OpenSSL ssl.h file:

@@ -12,27 +12,24 @@
 #include "x509.h"
 #include "x509_vfy.h"
 #include "ssl.h"
-#include <openssl/err.h>
+#include "err.h"
 #include <dirent.h>
 
 #define HOSTANDPORT "127.0.0.1:8443"
 #define BUFFER 1024
 
 @interface YDOpenSSLManager: NSObject{
-    
     X509_STORE *certStore;
     X509_LOOKUP *lookup;
     SSL_CTX *ctx;
     SSL *ssl;
     BIO *bio, *output;
     NSString *cafilespath;
-    
 }
 
-- (instancetype) init;
-- (NSString *) getVersion;
-- (void) printServerResponse;
-- (void) cleanUp;
+-(instancetype) init;
+-(void) printServerResponse;
+-(void) cleanUp;
 
 @end
     

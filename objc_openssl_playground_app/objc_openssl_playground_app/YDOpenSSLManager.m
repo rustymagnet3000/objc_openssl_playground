@@ -47,7 +47,6 @@
 
     if(BIO_do_connect(bio) <= 0){
         fprintf(stderr, "Error connecting to server\n");
-        ERR_print_errors_fp(stderr);
         return NO;
     }
     
@@ -108,11 +107,10 @@
     BIO_free(output);
     SSL_CTX_free(ctx);
     ssl = NULL;
+    NSLog(@"[*] Clean-up done");
 }
 
--(NSString *) getVersion{
-    return [NSString stringWithFormat:@"[*] Version: %s", OPENSSL_VERSION_TEXT];
-}
+
 
 @end
 

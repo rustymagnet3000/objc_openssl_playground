@@ -6,7 +6,7 @@
 #include "pem.h"
 
 @interface YDOpenSSLHelper: NSObject{}
-    
++(NSString *) getVersion;
 +(void) readLocalCertFile;
 @end
 
