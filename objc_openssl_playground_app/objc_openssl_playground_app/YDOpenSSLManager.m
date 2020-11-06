@@ -8,19 +8,19 @@
         
         OPENSSL_init_crypto(OPENSSL_INIT_NO_ADD_ALL_CIPHERS
         | OPENSSL_INIT_NO_ADD_ALL_DIGESTS, NULL);
-        certStore = NULL;
+        certStore = nil;
         cafilespath = [[NSProcessInfo processInfo] environment][@"CAFILES"];
-        lookup=NULL;
-        ctx = NULL;
+        lookup=nil;
+        ctx = nil;
 
         if([self verifyTrustStoreDirExists] == NO)
-            return NULL;
+            return nil;
 
         if([self connectionSetup] == NO)
-            return NULL;
+            return nil;
         
         if([self loadTrustStore] == NO)
-            return NULL;
+            return nil;
     
         NSLog(@"[*] Verified Trust Store directory, connection setup and loading the Trust Store");
         

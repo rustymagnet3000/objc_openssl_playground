@@ -28,7 +28,7 @@
 
     - (void)testInitVerifyAndPrintResponse {
         [self banner];
-        if (manager != NULL){
+        if (manager != nil){
             [manager cleanUp];
         }
         [self banner];

@@ -7,7 +7,7 @@ int main () {
         NSLog (@"%@", [YDOpenSSLHelper getVersion]);
         
         YDOpenSSLManager *manager = [[YDOpenSSLManager alloc] init];
-        if (manager != NULL){
+        if (manager != nil){
             [manager printServerResponse];
             [manager cleanUp];
         }

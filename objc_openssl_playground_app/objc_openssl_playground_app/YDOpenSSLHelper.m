@@ -7,7 +7,7 @@
 }
 
 +(void) readLocalCertFile{
-    NSString *certpath = [[NSBundle mainBundle] pathForResource:@"/cafiles/rustyMagnetRootCA2025" ofType:@"pem"];
+    NSString *certpath = [[NSBundle mainBundle] pathForResource:@"/rustyMagnetRootCA2025" ofType:@"pem"];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:certpath])
     {
@@ -21,7 +21,9 @@
         PEM_read_X509(certfile, &cert, 0, NULL);
         PEM_write_X509(stdout, cert);
     }
-    NSLog(@"[*] Error reading local cert");
+    else {
+        NSLog(@"[!]Error reading local cert");
+    }
 }
 
 @end
