@@ -5,8 +5,8 @@
 int main () {
     @autoreleasepool {
         NSLog (@"%@", [YDOpenSSLHelper getVersion]);
-        
-        YDOpenSSLManager *manager = [[YDOpenSSLManager alloc] init];
+//        NSLog (@"%@", [YDOpenSSLHelper getDefaultCertDirectory]);
+                YDOpenSSLManager *manager = [[YDOpenSSLManager alloc] init];
         if (manager != nil){
             [manager printServerResponse];
             [manager cleanUp];

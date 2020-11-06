@@ -46,8 +46,7 @@
             }
         }
         assert(successCount == MAX_TESTS);
-        NSLog(@"[*]Complete %d", successCount);
-        
+        NSLog(@"[*]Complete %d", successCount);       
     }
 
     - (void)testReadCertificate {

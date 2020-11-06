@@ -10,7 +10,6 @@
         | OPENSSL_INIT_NO_ADD_ALL_DIGESTS, NULL);
         cert_store = nil;
         ca_dir_path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@CA_FILES];
-        // cafilespath = [[NSProcessInfo processInfo] environment][@CAFILES];
         lookup = nil;
         ctx = nil;
 
@@ -62,9 +61,13 @@
 
 -(BOOL) loadTrustStore{
 
+    if(SSL_CTX_set_default_verify_paths(ctx) == 0)
+        return NO;
+
     if(SSL_CTX_load_verify_locations(ctx, NULL, ca_dir_path.fileSystemRepresentation) == 0)
         return NO;
-    NSLog(@"[*]loaded trust store from Folder");
+    
+    NSLog(@"[*]SSL_CTX_set_default_verify_paths and loaded trust store from Folder");
     
     if(![self verifyPeerCertificates])
         return NO;
@@ -113,9 +116,4 @@
     NSLog(@"[*]Clean-up done");
 }
 
-
-
 @end
-
-
-

@@ -3,7 +3,14 @@
 @implementation YDOpenSSLHelper
 
 +(NSString *) getVersion{
-    return [NSString stringWithFormat:@"[*] Version: %s", OPENSSL_VERSION_TEXT];
+    return [NSString stringWithFormat:@"[*]version: %s", OPENSSL_VERSION_TEXT];
+}
+
++(NSString *) getDefaultCertDirectory{
+    
+    const char *dir;
+    dir = X509_get_default_cert_dir();
+    return [NSString stringWithFormat:@"[*]default_cert_dir: %@", [NSString stringWithUTF8String:dir]];
 }
 
 +(void) readLocalCertFile{
