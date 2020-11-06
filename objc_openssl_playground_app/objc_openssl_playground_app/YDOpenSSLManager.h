@@ -17,14 +17,15 @@
 
 #define HOSTANDPORT "127.0.0.1:8443"
 #define BUFFER 1024
+#define CA_FILES "/ca_files"
 
 @interface YDOpenSSLManager: NSObject{
-    X509_STORE *certStore;
+    X509_STORE *cert_store;
     X509_LOOKUP *lookup;
     SSL_CTX *ctx;
     SSL *ssl;
     BIO *bio, *output;
-    NSString *cafilespath;
+    NSString *ca_dir_path;
 }
 
 -(instancetype) init;

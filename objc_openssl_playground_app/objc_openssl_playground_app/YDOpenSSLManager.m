@@ -4,13 +4,14 @@
 
 -(instancetype) init{
     if (self = [super init]) {
-        NSLog(@"[*] Initializing: %@", NSStringFromClass([self class]));
+        NSLog(@"[*]Initializing: %@", NSStringFromClass([self class]));
         
         OPENSSL_init_crypto(OPENSSL_INIT_NO_ADD_ALL_CIPHERS
         | OPENSSL_INIT_NO_ADD_ALL_DIGESTS, NULL);
-        certStore = nil;
-        cafilespath = [[NSProcessInfo processInfo] environment][@"CAFILES"];
-        lookup=nil;
+        cert_store = nil;
+        ca_dir_path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@CA_FILES];
+        // cafilespath = [[NSProcessInfo processInfo] environment][@CAFILES];
+        lookup = nil;
         ctx = nil;
 
         if([self verifyTrustStoreDirExists] == NO)
@@ -22,7 +23,7 @@
         if([self loadTrustStore] == NO)
             return nil;
     
-        NSLog(@"[*] Verified Trust Store directory, connection setup and loading the Trust Store");
+        NSLog(@"[*]Initialization succeeded");
         
     }
     return self;
@@ -31,8 +32,9 @@
 -(BOOL) verifyTrustStoreDirExists{
     BOOL isDir = NO;
     NSFileManager *fileManager = [[NSFileManager alloc] init];
-    [fileManager fileExistsAtPath:cafilespath isDirectory:&isDir];
+    [fileManager fileExistsAtPath:ca_dir_path isDirectory:&isDir];
     return isDir;
+    NSLog(@"[*]Found directory of Cert Authority certificates");
 }
 
 
@@ -60,7 +62,7 @@
 
 -(BOOL) loadTrustStore{
 
-    if(SSL_CTX_load_verify_locations(ctx, NULL, cafilespath.fileSystemRepresentation) == 0)
+    if(SSL_CTX_load_verify_locations(ctx, NULL, ca_dir_path.fileSystemRepresentation) == 0)
         return NO;
     NSLog(@"[*]loaded trust store from Folder");
     

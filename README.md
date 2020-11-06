@@ -29,8 +29,14 @@ LIBRARY_SEARCH_PATHS = ${SRCROOT}/iOS/**
        will try to fill in missing certificates from CAfile/CApath, if the certificate chain was not explicitly specified (see
        SSL_CTX_add_extra_chain_cert(3), SSL_CTX_use_certificate(3).
 
-
 There is a whole step about `X509_STORE_load_locations` using a tool called `c_rehash` to inject a symbolic link into the CA folder.  But this is not required when dealing with the `SSL_CTX` structs.
+
+### Putting Trust Store inside App Bundle
+Under the `Target \ Build Phases` a `copy files` stage was added. This creates a directory called `ca_files`.  
+
+![copy_certs](images/2020/11/copy-certs.png)
+
+This is where OpenSSL will check when asked to verify trust.
 
 ### Verify Cert Chain - Speed
 If you have two different length of certs loaded locally, which chain `verifies` quicker, with OpenSSL?
