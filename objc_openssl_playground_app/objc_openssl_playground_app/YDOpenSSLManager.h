@@ -7,7 +7,7 @@
 #define NSLog(...) {}
 #endif
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #include "pem.h"
 #include "x509.h"
 #include "x509_vfy.h"

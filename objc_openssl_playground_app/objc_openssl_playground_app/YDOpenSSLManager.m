@@ -22,7 +22,8 @@
         if([self loadTrustStore] == NO)
             return NULL;
     
- 
+        NSLog(@"[*] Verified Trust Store directory, connection setup and loading the Trust Store");
+        
     }
     return self;
 }
@@ -46,14 +47,14 @@
         return NO;
 
     if(BIO_do_connect(bio) <= 0){
-        fprintf(stderr, "Error connecting to server\n");
+        fprintf(stderr, "[!]Error connecting to server\n");
         return NO;
     }
     
     BIO_get_ssl(bio, & ssl);
     SSL_set_mode(ssl, SSL_MODE_AUTO_RETRY);
         
-    NSLog(@"[*] Connection created");
+    NSLog(@"[*]Connection created");
     return YES;
 }
 
@@ -61,7 +62,7 @@
 
     if(SSL_CTX_load_verify_locations(ctx, NULL, cafilespath.fileSystemRepresentation) == 0)
         return NO;
-    NSLog(@"[*] loaded trust store from Folder");
+    NSLog(@"[*]loaded trust store from Folder");
     
     if(![self verifyPeerCertificates])
         return NO;
@@ -74,16 +75,16 @@
     const long result = SSL_get_verify_result(ssl);
     switch (result) {
         case X509_V_OK:
-            fprintf(stdout, "[*] Happy path\n");
+            fprintf(stdout, "[*]Happy path\n");
             return YES;
         case X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY:
-            fprintf(stderr, "[*] Can't find certificate\n");
+            fprintf(stderr, "[!]Can't find certificate\n");
             return NO;
         case X509_V_ERR_SELF_SIGNED_CERT_IN_CHAIN:
-            fprintf(stdout, "[*] Self signed certificate chain. Proceed\n");
+            fprintf(stdout, "[*]Self signed certificate chain. Proceed\n");
             return YES;
         default:
-            fprintf(stderr, "[*] Unexpected error: %ld\n", result);
+            fprintf(stderr, "[!]Unexpected error: %ld\n", result);
             return NO;
     }
 }
@@ -107,7 +108,7 @@
     BIO_free(output);
     SSL_CTX_free(ctx);
     ssl = NULL;
-    NSLog(@"[*] Clean-up done");
+    NSLog(@"[*]Clean-up done");
 }
 
 

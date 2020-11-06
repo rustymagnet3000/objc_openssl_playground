@@ -1,13 +1,13 @@
 #import "YDOpenSSLManager.h"
 #import "YDOpenSSLHelper.h"
-#import <Foundation/Foundation.h>
+@import Foundation;
 
-int main(int argc, const char * argv[]) {
+int main () {
     @autoreleasepool {
-        YDOpenSSLManager *manager = [[YDOpenSSLManager alloc] init];
-        NSLog(@"%@", [YDOpenSSLHelper getVersion]);
+        NSLog (@"%@", [YDOpenSSLHelper getVersion]);
         
-        if(manager != NULL){
+        YDOpenSSLManager *manager = [[YDOpenSSLManager alloc] init];
+        if (manager != NULL){
             [manager printServerResponse];
             [manager cleanUp];
         }

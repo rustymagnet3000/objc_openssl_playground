@@ -1,7 +1,4 @@
 # OpenSSL code playground
-Brief notes on [OpenSSL version changes][5b8444e4] are worth reading.
-
-  [5b8444e4]: https://www.openssl.org/news/openssl-1.1.1-notes.html "openssl_notes"
 ### Setup
 Locally build the `OpenSSL` libraries ( `libcrypto.a` and `libssl.a` ) for `iOS`.
 
@@ -25,8 +22,6 @@ The `Header` files must be dragged into the project.  When you have multiple arc
 HEADER_SEARCH_PATHS = ${SRCROOT}/iOS/**
 LIBRARY_SEARCH_PATHS = ${SRCROOT}/iOS/**
 ```
-
-
 ### Trust Store
 `man SSL_CTX_load_verify_locations` gives this statement:
 
@@ -35,9 +30,16 @@ LIBRARY_SEARCH_PATHS = ${SRCROOT}/iOS/**
        SSL_CTX_add_extra_chain_cert(3), SSL_CTX_use_certificate(3).
 
 
-There is a whole step about `X509_STORE_load_locations` using a tool called `c_rehash` to inject a symbolic link into the CA folder.  Each cert is given a link. But `SSL_CTX_load_verify_locations` took care of this for you.
-```
-      > X509_STORE_load_locations() loads trusted certificate(s) into an X509_STORE from a given file and/or directory path. It is permitted to specify just a file, just a directory, or both paths. The certificates in the directory must be in hashed form, as documented in X509_LOOKUP_hash_dir(3).
+There is a whole step about `X509_STORE_load_locations` using a tool called `c_rehash` to inject a symbolic link into the CA folder.  But this is not required when dealing with the `SSL_CTX` structs.
+
+### Verify Cert Chain - Speed
+If you have two different length of certs loaded locally, which chain `verifies` quicker, with OpenSSL?
+
+Chain A  |  Chain B
+--|--
+Root CA | Root-CA
+Int-CA |
+Leaf  |
 
 
 
@@ -65,6 +67,7 @@ Platform  |  Link
 iOS  |  https://github.com/x2on/OpenSSL-for-iPhone
 macOS  |  https://github.com/jasonacox/Build-OpenSSL-cURL/
 iOS  |  https://lvvme.com/posts/2019/02/16-build_boringssl_for_ios/
+General |  https://www.openssl.org/news/openssl-1.1.1-notes.html
 
 ##### OpenSSL APIs and Structs
 API  |  Link

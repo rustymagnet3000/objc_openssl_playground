@@ -21,7 +21,6 @@
 		0F62C262251E30C900885F35 /* httpbin-org-CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F62C260251E30C200885F35 /* httpbin-org-CA.pem */; };
 		0F62C263251E30CB00885F35 /* httpbin-org-IntCA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F62C261251E30C300885F35 /* httpbin-org-IntCA.pem */; };
 		0F62C26A251E4A2A00885F35 /* YDOpenSSLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62C269251E4A2A00885F35 /* YDOpenSSLHelper.m */; };
-		0F62C26B251E4A2A00885F35 /* YDOpenSSLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62C269251E4A2A00885F35 /* YDOpenSSLHelper.m */; };
 		0F62C26C251E4A2A00885F35 /* YDOpenSSLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62C269251E4A2A00885F35 /* YDOpenSSLHelper.m */; };
 		0F78138D251A529D00E01809 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F78138C251A529D00E01809 /* main.m */; };
 		0F78140F251A72CA00E01809 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F78140D251A72CA00E01809 /* libcrypto.a */; };
@@ -31,7 +30,6 @@
 		0F7814FC251BAE5E00E01809 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F781482251B2F2F00E01809 /* libcrypto.a */; };
 		0F7814FD251BAE6D00E01809 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F781483251B2F2F00E01809 /* libssl.a */; };
 		0FDD56FE251893AC00B29C95 /* YDOpenSSLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD56FD251893AC00B29C95 /* YDOpenSSLManager.m */; };
-		0FDD56FF251893AC00B29C95 /* YDOpenSSLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDD56FD251893AC00B29C95 /* YDOpenSSLManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -859,8 +857,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FDD56FF251893AC00B29C95 /* YDOpenSSLManager.m in Sources */,
-				0F62C26B251E4A2A00885F35 /* YDOpenSSLHelper.m in Sources */,
 				0F3F0D1D2514A2B900276B6E /* objc_openssl_playground_appTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1062,6 +1058,7 @@
 		0F3F0D252514A2B900276B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2N3CU4HVH8;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/iOS/**";
@@ -1087,6 +1084,7 @@
 		0F3F0D262514A2B900276B6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2N3CU4HVH8;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/iOS/**";
