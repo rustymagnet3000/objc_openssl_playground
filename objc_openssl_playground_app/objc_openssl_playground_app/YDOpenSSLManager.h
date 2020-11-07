@@ -15,7 +15,7 @@
 #include "err.h"
 #include <dirent.h>
 
-#define HOSTANDPORT "127.0.0.1:8443"
+#define HOSTANDPORT "httpbin.org:443"       // "127.0.0.1:8443"
 #define BUFFER 1024
 #define CA_FILES "/ca_files"
 

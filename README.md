@@ -1,4 +1,26 @@
 # OpenSSL code playground
+
+### Verify the server against local "pinlist"
+The app's code should mimic the OpenSSL command line tool:
+
+##### Verify leaf_cert
+```
+openssl verify -CApath ${CERTS} ${UNTRUSTED}/local_leaf.pem
+```
+##### Unable to get Issuer Cert
+When hitting `httpbin.org` the RootCA and IntCA were both loaded into this folder. But I still got a error code 20 ( `X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY` ).  You can lookup the codes here: https://www.openssl.org/docs/man1.0.2/man1/verify.html
+
+Why?  At run-time the project was loading the correct certs into the app:
+
+![ca_files_with_hashes](/images/2020/11/ca-files-with-hashes.png)
+
+I had even used to `c_rehash`:
+
+> rehash scans directories and calculates a hash value of each ".pem", ".crt", ".cer", or ".crl" file in the specified directory list and creates symbolic links
+>        for each file
+
+The command was simple to add as a `Build Script`: `~/openssl/bin/c_rehash ${CERTS}`.
+
 ### Setup
 Locally build the `OpenSSL` libraries ( `libcrypto.a` and `libssl.a` ) for `iOS`.
 

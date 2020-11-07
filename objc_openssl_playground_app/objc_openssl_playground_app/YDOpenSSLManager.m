@@ -13,15 +13,18 @@
         lookup = nil;
         ctx = nil;
 
-        if([self verifyTrustStoreDirExists] == NO)
+        if ([self verifyTrustStoreDirExists] == NO)
             return nil;
 
-        if([self connectionSetup] == NO)
+        if ([self connectionSetup] == NO)
             return nil;
         
-        if([self loadTrustStore] == NO)
+        if ([self loadTrustStore] == NO)
             return nil;
     
+        if([self verifyPeerCertificates] == NO)
+            return nil;
+        
         NSLog(@"[*]Initialization succeeded");
         
     }
@@ -58,20 +61,30 @@
     NSLog(@"[*]Connection created");
     return YES;
 }
+-(void) printtPeerCerts{
+    X509 *cert = SSL_get_peer_certificate(ssl);
+    STACK_OF(X509) *sk = sk_X509_new_null();
+    sk_X509_push(sk, cert);
+    
+    for (int i=1; i < sk_X509_num(sk); i++) {
+        printf("%i", i);
+    }
+    
+    NSLog(@"[*]Peer certs");
+}
 
 -(BOOL) loadTrustStore{
 
     if(SSL_CTX_set_default_verify_paths(ctx) == 0)
         return NO;
-
+    cert_store = SSL_CTX_get_cert_store(ctx);
+    
+    [self printtPeerCerts];
+    
     if(SSL_CTX_load_verify_locations(ctx, NULL, ca_dir_path.fileSystemRepresentation) == 0)
         return NO;
     
     NSLog(@"[*]SSL_CTX_set_default_verify_paths and loaded trust store from Folder");
-    
-    if(![self verifyPeerCertificates])
-        return NO;
-    
     return YES;
 }
 
@@ -83,7 +96,7 @@
             fprintf(stdout, "[*]Happy path\n");
             return YES;
         case X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY:
-            fprintf(stderr, "[!]Can't find certificate\n");
+            fprintf(stderr, "[!]Can't find certificate. Code:%ld\n", result);
             return NO;
         case X509_V_ERR_SELF_SIGNED_CERT_IN_CHAIN:
             fprintf(stdout, "[*]Self signed certificate chain. Proceed\n");
